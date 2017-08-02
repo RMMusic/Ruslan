@@ -117,11 +117,18 @@ class InstallSchema implements InstallSchemaInterface
                 'Entity ID'
             )
             ->addColumn(
-                'value',
+                'description',
                 Table::TYPE_TEXT,
                 null,
                 ['nullable' => false],
-                'Value'
+                'Brand description'
+            )
+            ->addColumn(
+                'image',
+                Table::TYPE_TEXT,
+                null,
+                ['nullable' => false],
+                'Brand image'
             )
             ->addForeignKey(
                 $installer->getFkName(
@@ -136,47 +143,6 @@ class InstallSchema implements InstallSchemaInterface
                 Table::ACTION_CASCADE
             )
             ->setComment('Ruslan Brand Text Table');
-        $installer->getConnection()->createTable($table);
-
-        /**
-         * Create table 'ruslan_brand_entity_media'
-         */
-        $table = $installer->getConnection()
-            ->newTable($installer->getTable('ruslan_brand_entity_image'))
-            ->addColumn(
-                'value_id',
-                Table::TYPE_INTEGER,
-                null,
-                ['identity' => true, 'nullable' => false, 'primary' => true],
-                'Value ID'
-            )
-            ->addColumn(
-                'entity_id',
-                Table::TYPE_INTEGER,
-                null,
-                ['unsigned' => true, 'nullable' => false],
-                'Entity ID'
-            )
-            ->addColumn(
-                'image',
-                Table::TYPE_TEXT,
-                null,
-                ['nullable' => false],
-                'Value'
-            )
-            ->addForeignKey(
-                $installer->getFkName(
-                    'ruslan_brand_entity_image',
-                    'entity_id',
-                    'ruslan_brand_entity',
-                    'entity_id'
-                ),
-                'entity_id',
-                $installer->getTable('ruslan_brand_entity'),
-                'entity_id',
-                Table::ACTION_CASCADE
-            )
-            ->setComment('Ruslan Brand Image Table');
         $installer->getConnection()->createTable($table);
 
         $installer->endSetup();

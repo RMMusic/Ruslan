@@ -10,8 +10,7 @@ namespace Ruslan\Brand\Model;
 use Magento\Framework\Model\AbstractModel;
 use Ruslan\Brand\Api\Data\DataInterface;
 
-class Data extends AbstractModel
-    implements DataInterface
+class Data extends AbstractModel implements DataInterface
 {
 
     /**
