@@ -53,13 +53,13 @@ class DataActions extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
-                if (isset($item['data_id'])) {
+                if (isset($item['entity_id'])) {
                     $item[$this->getData('name')] = [
                         'edit' => [
                             'href' => $this->_urlBuilder->getUrl(
                                 static::URL_PATH_EDIT,
                                 [
-                                    'data_id' => $item['data_id']
+                                    'entity_id' => $item['entity_id']
                                 ]
                             ),
                             'label' => __('Edit')
@@ -68,13 +68,13 @@ class DataActions extends Column
                             'href' => $this->_urlBuilder->getUrl(
                                 static::URL_PATH_DELETE,
                                 [
-                                    'data_id' => $item['data_id']
+                                    'entity_id' => $item['entity_id']
                                 ]
                             ),
                             'label' => __('Delete'),
                             'confirm' => [
-                                'title' => __('Delete "${ $.$data.data_title }"'),
-                                'message' => __('Are you sure you want to delete the Data: "${ $.$data.data_title }"?')
+                                'title' => __('Delete "${ $.$data.name }"'),
+                                'message' => __('Are you sure you want to delete the Data: "${ $.$data.name }"?')
                             ]
                         ]
                     ];

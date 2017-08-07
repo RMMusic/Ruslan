@@ -18,10 +18,31 @@
     </virtualType>
     <virtualType name="Ruslan\Brand\Model\ResourceModel\Data\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">temp</argument>
+            <argument name="mainTable" xsi:type="string">ruslan_brand_entity</argument>
             <argument name="resourceModel" xsi:type="string">Ruslan\Brand\Model\ResourceModel\Data</argument>
         </arguments>
     </virtualType>
+
+
+    <virtualType name="Ruslan\Brand\BrandImageUpload" type="Ruslan\Brand\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">brand/tmp</argument>
+            <argument name="basePath" xsi:type="string">brand</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Ruslan\Brand\Controller\Adminhtml\Data\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Ruslan\Brand\BrandImageUpload</argument>
+        </arguments>
+    </type>
+
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

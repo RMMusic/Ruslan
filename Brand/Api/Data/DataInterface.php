@@ -11,12 +11,12 @@ interface DataInterface
     /**
      * Constants for keys of data array. Identical to the name of the getter in snake case
      */
-    const DATA_ID           = 'data_id';
-    const DATA_TITLE        = 'data_title';
-    const DATA_DESCRIPTION  = 'data_description';
+    const DATA_ID           = 'entity_id';
+    const DATA_TITLE        = 'name';
+    const DATA_DESCRIPTION  = 'description';
     const IS_ACTIVE         = 'is_active';
-    const CREATED_AT        = 'created_at';
-    const UPDATED_AT        = 'updated_at';
+//    const CREATED_AT        = 'created_at';
+//    const UPDATED_AT        = 'updated_at';
 
 
     /**
@@ -57,7 +57,6 @@ interface DataInterface
      */
     public function getDataDescription();
 
-
     /**
      * Set Data Description
      *
@@ -66,14 +65,12 @@ interface DataInterface
      */
     public function setDataDescription($description);
 
-
     /**
      * Get is active
      *
      * @return bool|int
      */
     public function getIsActive();
-
 
     /**
      * Set is active
@@ -83,33 +80,33 @@ interface DataInterface
      */
     public function setIsActive($isActive);
 
-    /**
-     * Get created at
-     *
-     * @return string
-     */
-    public function getCreatedAt();
-
-    /**
-     * set created at
-     *
-     * @param $createdAt
-     * @return DataInterface
-     */
-    public function setCreatedAt($createdAt);
-
-    /**
-     * Get updated at
-     *
-     * @return string
-     */
-    public function getUpdatedAt();
-
-    /**
-     * set updated at
-     *
-     * @param $updatedAt
-     * @return DataInterface
-     */
-    public function setUpdatedAt($updatedAt);
+//    /**
+//     * Get created at
+//     *
+//     * @return string
+//     */
+//    public function getCreatedAt();
+//
+//    /**
+//     * set created at
+//     *
+//     * @param $createdAt
+//     * @return DataInterface
+//     */
+//    public function setCreatedAt($createdAt);
+//
+//    /**
+//     * Get updated at
+//     *
+//     * @return string
+//     */
+//    public function getUpdatedAt();
+//
+//    /**
+//     * set updated at
+//     *
+//     * @param $updatedAt
+//     * @return DataInterface
+//     */
+//    public function setUpdatedAt($updatedAt);
 }

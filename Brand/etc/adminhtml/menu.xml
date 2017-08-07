@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Ruslan_Brand::data" title="Sample Data" module="Ruslan_Brand" sortOrder="75" resource="Ruslan_Brand::data" action="brand/data/index"/>
+        <add id="Ruslan_Brand::data" title="Brand" module="Ruslan_Brand" sortOrder="75" resource="Ruslan_Brand::data" action="brand/data/index"/>
     </menu>
 </config>

@@ -7,52 +7,27 @@
 
 namespace Ruslan\Brand\Model\ResourceModel;
 
-use Magento\Framework\Model\ResourceModel\Db\Context;
-use Magento\Framework\Model\AbstractModel;
-use Magento\Framework\Stdlib\DateTime\DateTime;
-use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+use Magento\Catalog\Model\ResourceModel\AbstractResource;
 
-class Data extends AbstractDb
+/**
+ * Brand entity resource model
+ *
+ * @SuppressWarnings(PHPMD.LongVariable)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
+class Data extends AbstractResource
 {
     /**
-     * @var \Magento\Framework\Stdlib\DateTime\DateTime
-     */
-    protected $_date;
-
-    /**
-     * Data constructor.
+     * Entity type getter and lazy loader
      *
-     * @param Context $context
-     * @param DateTime $date
+     * @return \Magento\Eav\Model\Entity\Type
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function __construct(
-        Context $context,
-        DateTime $date
-    ) {
-        $this->_date = $date;
-        parent::__construct($context);
-    }
-
-    /**
-     * Resource initialisation
-     */
-    protected function _construct()
+    public function getEntityType()
     {
-        $this->_init('temp', 'data_id');
-    }
-
-    /**
-     * Before save callback
-     *
-     * @param AbstractModel|\Ruslan\Brand\Model\Data $object
-     * @return \Magento\Framework\Model\ResourceModel\Db\AbstractDb
-     */
-    protected function _beforeSave(AbstractModel $object)
-    {
-        $object->setUpdatedAt($this->_date->gmtDate());
-        if ($object->isObjectNew()) {
-            $object->setCreatedAt($this->_date->gmtDate());
+        if (empty($this->_type)) {
+            $this->setType(\Ruslan\Brand\Model\Data::ENTITY);
         }
-        return parent::_beforeSave($object);
+        return parent::getEntityType();
     }
 }

@@ -67,24 +67,24 @@ class Save extends Data
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-
+        var_dump($data);
+        die();
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $id = $this->getRequest()->getParam('data_id');
+            $id = $this->getRequest()->getParam('entity_id');
             if ($id) {
                 $model = $this->_dataRepository->getById($id);
             } else {
-                unset($data['data_id']);
+                unset($data['entity_id']);
                 $model = $this->_dataFactory->create();
             }
-
             try {
                 $this->_dataObjectHelper->populateWithArray($model, $data, DataInterface::class);
                 $this->_dataRepository->save($model);
                 $this->_messageManager->addSuccessMessage(__('You saved this data.'));
                 $this->_getSession()->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    return $resultRedirect->setPath('*/*/edit', ['data_id' => $model->getId(), '_current' => true]);
+                    return $resultRedirect->setPath('*/*/edit', ['entity_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
@@ -96,7 +96,7 @@ class Save extends Data
             }
 
             $this->_getSession()->setFormData($data);
-            return $resultRedirect->setPath('*/*/edit', ['data_id' => $this->getRequest()->getParam('data_id')]);
+            return $resultRedirect->setPath('*/*/edit', ['entity_id' => $this->getRequest()->getParam('entity_id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }

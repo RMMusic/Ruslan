@@ -9,7 +9,7 @@
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New Data</item>
+                <item name="label" xsi:type="string" translate="true">Add Brand</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/*/add</item>
             </item>
@@ -17,16 +17,17 @@
     </argument>
     <dataSource name="brand_data_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">SampleDataGridDataProvider</argument>
+            <argument name="class" xsi:type="string">Ruslan\Brand\Ui\Component\Listing\DataProvider</argument>
             <argument name="name" xsi:type="string">brand_data_grid_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">data_id</argument>
-            <argument name="requestFieldName" xsi:type="string">data_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="collectionFactory" xsi:type="object">Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">data_id</item>
+                        <item name="indexField" xsi:type="string">entity_id</item>
                     </item>
                 </item>
             </argument>
@@ -103,7 +104,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">brand_data_grid.brand_data_grid.brand_data_grid_columns.ids</item>
-                    <item name="indexField" xsi:type="string">data_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -175,25 +176,26 @@
                 </item>
             </item>
         </argument>
+
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">data_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="data_id">
+        <column name="entity_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
                     <item name="sorting" xsi:type="string">asc</item>
-                    <item name="label" xsi:type="string" translate="true">Data ID</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
                 </item>
             </argument>
         </column>
-        <column name="data_title">
+        <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -203,11 +205,11 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Data Title</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
                 </item>
             </argument>
         </column>
-        <column name="data_description">
+        <column name="description">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -217,7 +219,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Data Description</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
                 </item>
             </argument>
         </column>
@@ -233,37 +235,24 @@
                 </item>
             </argument>
         </column>
-        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+
+        <column name="image" class="Ruslan\Brand\Ui\Component\Listing\Column\Image">
             <argument name="data" xsi:type="array">
-                <item name="js_config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                </item>
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">dateRange</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                    <item name="dataType" xsi:type="string">date</item>
-                    <item name="label" xsi:type="string" translate="true">Created At</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="altField" xsi:type="string">title</item>
+                    <item name="has_preview" xsi:type="string">1</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
                 </item>
             </argument>
         </column>
-        <column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Date">
-            <argument name="data" xsi:type="array">
-                <item name="js_config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                </item>
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">dateRange</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                    <item name="dataType" xsi:type="string">date</item>
-                    <item name="label" xsi:type="string" translate="true">Updated At</item>
-                </item>
-            </argument>
-        </column>
+
         <actionsColumn name="actions" class="Ruslan\Brand\Ui\Component\Listing\Column\DataActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">data_id</item>
-                    <item name="urlEntityParamName" xsi:type="string">data_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="urlEntityParamName" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </actionsColumn>

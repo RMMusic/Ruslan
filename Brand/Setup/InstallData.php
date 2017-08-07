@@ -1,39 +1,34 @@
 <?php
-/**
- * Install data AddAttributeClothingMaterial
- *
- * @author Ruslan Miskiv
- */
+
 namespace Ruslan\Brand\Setup;
 
-use Magento\Eav\Setup\EavSetup;
-use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Ruslan\Brand\Setup\BrandSetupFactory;
+
 /**
- * Class InstallData
- *
- * @package MagDev\AddAttributeClothingMaterial\Setup
+ * @codeCoverageIgnore
  */
 class InstallData implements InstallDataInterface
 {
     /**
-     * EAV setup factory
+     * Brand setup factory
      *
-     * @var EavSetupFactory
+     * @var BrandSetupFactory
      */
-    private $eavSetupFactory;
+    private $brandSetupFactory;
 
     /**
      * Init
      *
-     * @param EavSetupFactory $eavSetupFactory
+     * @param BrandSetupFactory $brandSetupFactory
      */
-    public function __construct(EavSetupFactory $eavSetupFactory)
+    public function __construct(BrandSetupFactory $brandSetupFactory)
     {
-        $this->eavSetupFactory = $eavSetupFactory;
+        $this->brandSetupFactory = $brandSetupFactory;
     }
+
     /**
      * {@inheritdoc}
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -42,22 +37,8 @@ class InstallData implements InstallDataInterface
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        $eavSetup = $this->eavSetupFactory->create();
-        $eavSetup->addAttribute(
-            \Magento\Catalog\Model\Product::ENTITY, 'test_ruslan_brand',
-            [
-                'group' => 'General',
-                'type' => 'varchar',
-                'label' => 'Brand',
-                'input' => 'select',
-                'source' => 'Ruslan\Brand\Model\Attribute\Source\Brand',
-                'required' => false,
-                'sort_order' => 50,
-                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
-                'visible' => true,
-                'is_html_allowed_on_front' => true,
-                'visible_on_front' => true
-            ]
-        );
+        /** @var \Magento\Catalog\Setup\BrandSetup $brandSetup */
+        $brandSetup = $this->brandSetupFactory->create(['setup' => $setup]);
+        $brandSetup->installEntities();
     }
 }

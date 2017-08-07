@@ -14,9 +14,14 @@ class Data extends AbstractModel implements DataInterface
 {
 
     /**
+     * Entity code.
+     */
+    const ENTITY = 'ruslan_brand';
+
+    /**
      * Cache tag
      */
-    const CACHE_TAG = 'temp';
+    const CACHE_TAG = 'ruslan_brand';
 
     /**
      * Initialise resource model
@@ -99,45 +104,45 @@ class Data extends AbstractModel implements DataInterface
         return $this->setData(DataInterface::IS_ACTIVE, $isActive);
     }
 
-    /**
-     * Get created at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->getData(DataInterface::CREATED_AT);
-    }
-
-    /**
-     * Set created at
-     *
-     * @param $createdAt
-     * @return $this
-     */
-    public function setCreatedAt($createdAt)
-    {
-        return $this->setData(DataInterface::CREATED_AT, $createdAt);
-    }
-
-    /**
-     * Get updated at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->getData(DataInterface::UPDATED_AT);
-    }
-
-    /**
-     * Set updated at
-     *
-     * @param $updatedAt
-     * @return $this
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        return $this->setData(DataInterface::UPDATED_AT, $updatedAt);
-    }
+//    /**
+//     * Get created at
+//     *
+//     * @return string
+//     */
+//    public function getCreatedAt()
+//    {
+//        return $this->getData(DataInterface::CREATED_AT);
+//    }
+//
+//    /**
+//     * Set created at
+//     *
+//     * @param $createdAt
+//     * @return $this
+//     */
+//    public function setCreatedAt($createdAt)
+//    {
+//        return $this->setData(DataInterface::CREATED_AT, $createdAt);
+//    }
+//
+//    /**
+//     * Get updated at
+//     *
+//     * @return string
+//     */
+//    public function getUpdatedAt()
+//    {
+//        return $this->getData(DataInterface::UPDATED_AT);
+//    }
+//
+//    /**
+//     * Set updated at
+//     *
+//     * @param $updatedAt
+//     * @return $this
+//     */
+//    public function setUpdatedAt($updatedAt)
+//    {
+//        return $this->setData(DataInterface::UPDATED_AT, $updatedAt);
+//    }
 }

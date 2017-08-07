@@ -133,7 +133,7 @@ class DataRepository implements DataRepositoryInterface
                 );
             }
         } else {
-            $field = 'data_id';
+            $field = 'entity_id';
             $collection->addOrder($field, 'ASC');
         }
         $collection->setCurPage($searchCriteria->getCurrentPage());

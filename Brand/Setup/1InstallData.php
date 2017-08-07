@@ -1,53 +1,63 @@
 <?php
+/**
+ * Install data AddAttributeClothingMaterial
+ *
+ * @author Ruslan Miskiv
+ */
 namespace Ruslan\Brand\Setup;
 
+use Magento\Eav\Setup\EavSetup;
+use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\InstallDataInterface;
-use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
-
-class InstallData implements InstallDataInterface {
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+/**
+ * Class InstallData
+ *
+ * @package MagDev\AddAttributeClothingMaterial\Setup
+ */
+class InstallData implements InstallDataInterface
+{
+    /**
+     * EAV setup factory
+     *
+     * @var EavSetupFactory
+     */
+    private $eavSetupFactory;
 
     /**
-     * Install data
+     * Init
      *
-     * @param ModuleDataSetupInterface $setup
-     * @param ModuleContextInterface $context
+     * @param EavSetupFactory $eavSetupFactory
+     */
+    public function __construct(EavSetupFactory $eavSetupFactory)
+    {
+        $this->eavSetupFactory = $eavSetupFactory;
+    }
+    /**
+     * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '1.0.0', '<')) {
-            $data = [
-                [
-                    'data_title' => 'Hello World!',
-                    'data_description' => 'This is the first description.',
-                    'is_active' => 1
-                ],
-                [
-                    'data_title' => 'Hello Again!',
-                    'data_description' => 'This is the second description.',
-                    'is_active' => 1
-                ],
-                [
-                    'data_title' => 'Welcome To The Third Title',
-                    'data_description' => 'Here we have a slightly longer description.',
-                    'is_active' => 0
-                ],
-                [
-                    'data_title' => 'Fourth Coming',
-                    'data_description' => 'This is the fourth description.',
-                    'is_active' => 1
-                ],
-                [
-                    'data_title' => 'TQBFJOTLD',
-                    'data_description' => 'The quick brown fox jumped over the lazy dog.',
-                    'is_active' => 0
-                ]
-            ];
-
-            foreach ($data as $datum) {
-                $setup->getConnection()
-                    ->insertForce($setup->getTable('temp'), $datum);
-            }
-        }
+        $eavSetup = $this->eavSetupFactory->create();
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY, 'test_ruslan_brand',
+            [
+                'group' => 'General',
+                'type' => 'varchar',
+                'label' => 'Brand',
+                'input' => 'select',
+                'source' => 'Ruslan\Brand\Model\Attribute\Source\Brand',
+                'required' => false,
+                'sort_order' => 50,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
+                'visible' => true,
+                'is_html_allowed_on_front' => true,
+                'visible_on_front' => true
+            ]
+        );
     }
 }

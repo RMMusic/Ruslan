@@ -45,8 +45,8 @@ class Brand extends AbstractSource implements OptionSourceInterface
 
             foreach ($collection as $category) {
                 $this->_options[] = [
-                    'label' => $category->getData('data_title'),
-                    'value' => $category->getData('data_id')
+                    'label' => $category->getData('name'),
+                    'value' => $category->getData('entity_id')
                 ];
             }
         }

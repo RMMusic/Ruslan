@@ -16,7 +16,7 @@ class Edit extends Data
      */
     public function execute()
     {
-        $dataId = $this->getRequest()->getParam('data_id');
+        $dataId = $this->getRequest()->getParam('entity_id');
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Ruslan_Brand::data')
             ->addBreadcrumb(__('Data'), __('Data'))

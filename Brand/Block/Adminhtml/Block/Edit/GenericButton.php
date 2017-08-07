@@ -33,7 +33,7 @@ class GenericButton
     public function getDataId()
     {
         try {
-            return $this->context->getRequest()->getParam('data_id');
+            return $this->context->getRequest()->getParam('entity_id');
         } catch (NoSuchEntityException $e) {
         }
         return null;
