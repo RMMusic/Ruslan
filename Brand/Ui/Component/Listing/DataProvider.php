@@ -1,10 +1,6 @@
 <?php
-/**
- * Company listing data provider
- *
- * @author <contact@galilee.fr>
- * @copyright 2017 Galilee
- */
+
+
 namespace Ruslan\Brand\Ui\Component\Listing;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
@@ -78,7 +74,6 @@ class DataProvider extends AbstractDataProvider
             $this->getCollection()->load();
         }
         $items = $this->getCollection()->addAttributeToSelect('*')->toArray();
-
         return [
             'totalRecords' => $this->getCollection()->getSize(),
             'items'        => array_values($items),

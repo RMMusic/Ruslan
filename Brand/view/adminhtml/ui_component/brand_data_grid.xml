@@ -236,17 +236,17 @@
             </argument>
         </column>
 
-        <column name="image" class="Ruslan\Brand\Ui\Component\Listing\Column\Image">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
-                    <item name="sortable" xsi:type="boolean">false</item>
-                    <item name="altField" xsi:type="string">title</item>
-                    <item name="has_preview" xsi:type="string">1</item>
-                    <item name="label" xsi:type="string" translate="true">Image</item>
-                </item>
-            </argument>
-        </column>
+        <!--<column name="image" class="Ruslan\Brand\Ui\Component\Listing\Column\Image">-->
+            <!--<argument name="data" xsi:type="array">-->
+                <!--<item name="config" xsi:type="array">-->
+                    <!--<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>-->
+                    <!--<item name="sortable" xsi:type="boolean">false</item>-->
+                    <!--<item name="altField" xsi:type="string">title</item>-->
+                    <!--<item name="has_preview" xsi:type="string">1</item>-->
+                    <!--<item name="label" xsi:type="string" translate="true">Image</item>-->
+                <!--</item>-->
+            <!--</argument>-->
+        <!--</column>-->
 
         <actionsColumn name="actions" class="Ruslan\Brand\Ui\Component\Listing\Column\DataActions">
             <argument name="data" xsi:type="array">

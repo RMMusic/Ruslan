@@ -46,7 +46,7 @@ class Data extends AbstractModel implements DataInterface
      *
      * @return string
      */
-    public function getDataTitle()
+    public function getName()
     {
         return $this->getData(DataInterface::DATA_TITLE);
     }
@@ -57,7 +57,7 @@ class Data extends AbstractModel implements DataInterface
      * @param $title
      * @return $this
      */
-    public function setDataTitle($title)
+    public function setName($title)
     {
         return $this->setData(DataInterface::DATA_TITLE, $title);
     }
@@ -67,7 +67,7 @@ class Data extends AbstractModel implements DataInterface
      *
      * @return string
      */
-    public function getDataDescription()
+    public function getDescription()
     {
         return $this->getData(DataInterface::DATA_TITLE);
     }
@@ -78,7 +78,7 @@ class Data extends AbstractModel implements DataInterface
      * @param $description
      * @return $this
      */
-    public function setDataDescription($description)
+    public function setDescription($description)
     {
         return $this->setData(DataInterface::DATA_DESCRIPTION, $description);
     }
@@ -103,46 +103,4 @@ class Data extends AbstractModel implements DataInterface
     {
         return $this->setData(DataInterface::IS_ACTIVE, $isActive);
     }
-
-//    /**
-//     * Get created at
-//     *
-//     * @return string
-//     */
-//    public function getCreatedAt()
-//    {
-//        return $this->getData(DataInterface::CREATED_AT);
-//    }
-//
-//    /**
-//     * Set created at
-//     *
-//     * @param $createdAt
-//     * @return $this
-//     */
-//    public function setCreatedAt($createdAt)
-//    {
-//        return $this->setData(DataInterface::CREATED_AT, $createdAt);
-//    }
-//
-//    /**
-//     * Get updated at
-//     *
-//     * @return string
-//     */
-//    public function getUpdatedAt()
-//    {
-//        return $this->getData(DataInterface::UPDATED_AT);
-//    }
-//
-//    /**
-//     * Set updated at
-//     *
-//     * @param $updatedAt
-//     * @return $this
-//     */
-//    public function setUpdatedAt($updatedAt)
-//    {
-//        return $this->setData(DataInterface::UPDATED_AT, $updatedAt);
-//    }
 }

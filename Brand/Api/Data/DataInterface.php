@@ -15,9 +15,6 @@ interface DataInterface
     const DATA_TITLE        = 'name';
     const DATA_DESCRIPTION  = 'description';
     const IS_ACTIVE         = 'is_active';
-//    const CREATED_AT        = 'created_at';
-//    const UPDATED_AT        = 'updated_at';
-
 
     /**
      * Get ID
@@ -25,7 +22,6 @@ interface DataInterface
      * @return int|null
      */
     public function getId();
-
 
     /**
      * Set ID
@@ -40,7 +36,7 @@ interface DataInterface
      *
      * @return string
      */
-    public function getDataTitle();
+    public function getName();
 
     /**
      * Set Data Title
@@ -48,14 +44,14 @@ interface DataInterface
      * @param $title
      * @return mixed
      */
-    public function setDataTitle($title);
+    public function setName($title);
 
     /**
      * Get Data Description
      *
      * @return mixed
      */
-    public function getDataDescription();
+    public function getDescription();
 
     /**
      * Set Data Description
@@ -63,7 +59,7 @@ interface DataInterface
      * @param $description
      * @return mixed
      */
-    public function setDataDescription($description);
+    public function setDescription($description);
 
     /**
      * Get is active
@@ -79,34 +75,4 @@ interface DataInterface
      * @return DataInterface
      */
     public function setIsActive($isActive);
-
-//    /**
-//     * Get created at
-//     *
-//     * @return string
-//     */
-//    public function getCreatedAt();
-//
-//    /**
-//     * set created at
-//     *
-//     * @param $createdAt
-//     * @return DataInterface
-//     */
-//    public function setCreatedAt($createdAt);
-//
-//    /**
-//     * Get updated at
-//     *
-//     * @return string
-//     */
-//    public function getUpdatedAt();
-//
-//    /**
-//     * set updated at
-//     *
-//     * @param $updatedAt
-//     * @return DataInterface
-//     */
-//    public function setUpdatedAt($updatedAt);
 }

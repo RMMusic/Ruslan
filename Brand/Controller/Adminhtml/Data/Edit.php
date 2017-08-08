@@ -28,7 +28,7 @@ class Edit extends Data
         } else {
             $resultPage->addBreadcrumb(__('Edit brand'), __('Edit brand'));
             $resultPage->getConfig()->getTitle()->prepend(
-                $this->_dataRepository->getById($dataId)->getDataTitle()
+                $this->_dataRepository->getById($dataId)->getN()
             );
         }
         return $resultPage;

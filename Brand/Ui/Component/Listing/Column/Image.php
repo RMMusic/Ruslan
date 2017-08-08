@@ -28,18 +28,18 @@ class Image extends Column
      * @param array $components
      * @param array $data
      */
-    public function __construct(
-        ContextInterface $context,
-        UiComponentFactory $uiComponentFactory,
-        UrlInterface $urlBuilder,
+//    public function __construct(
+//        ContextInterface $context,
+//        UiComponentFactory $uiComponentFactory,
+//        UrlInterface $urlBuilder,
 //        ImageUploader $imageModel,
-        array $components = [],
-        array $data = []
-    ) {
-        parent::__construct($context, $uiComponentFactory, $components, $data);
-        $this->urlBuilder = $urlBuilder;
+//        array $components = [],
+//        array $data = []
+//    ) {
+//        parent::__construct($context, $uiComponentFactory, $components, $data);
+//        $this->urlBuilder = $urlBuilder;
 //        $this->imageModel = $imageModel;
-    }
+//    }
     /**
      * Prepare Data Source
      *
@@ -59,7 +59,7 @@ class Image extends Column
                 $item[$fieldName . '_alt'] = $this->getAlt($item) ?: '';
                 $item[$fieldName . '_link'] = $this->urlBuilder->getUrl(
                     'brand/image/edit',
-                    ['image_id' => $item['entity_id']]
+                    ['entity_id' => $item['entity_id']]
                 );
                 $item[$fieldName . '_orig_src'] = $url;
             }

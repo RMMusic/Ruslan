@@ -1,10 +1,5 @@
 <?php
-/**
- * Company form data provider
- *
- * @author <contact@galilee.fr>
- * @copyright 2017 Galilee
- */
+
 namespace Ruslan\Brand\Ui\Component\Listing;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
@@ -16,7 +11,7 @@ use Magento\Eav\Api\Data\AttributeInterface;
  * Class DataProvider
  * @package Socoda\Company\Ui\Component\Company\Form
  */
-class DataProvider extends AbstractDataProvider
+class FormDataProvider extends AbstractDataProvider
 {
     /**
      * Image attribute code.

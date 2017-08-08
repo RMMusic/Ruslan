@@ -74,10 +74,10 @@ class DataProvider extends AbstractDataProvider
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
-        $items = $this->collection->getItems();
+        $items = $this->collection->getConnection();
         foreach ($items as $page) {
             $this->loadedData[$page->getId()] = $page->getData();
-        }
+        };
         $data = $this->dataPersistor->get('module_messages');
         if (!empty($data)) {
             $page = $this->collection->getNewEmptyItem();
