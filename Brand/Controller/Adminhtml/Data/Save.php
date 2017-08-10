@@ -67,7 +67,11 @@ class Save extends Data
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+//        $data['image'] = $data['image'][0]['url'];
         $resultRedirect = $this->resultRedirectFactory->create();
+
+//        var_dump($data);
+//        die();
         if ($data) {
             $id = $this->getRequest()->getParam('entity_id');
             if ($id) {

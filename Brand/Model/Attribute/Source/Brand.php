@@ -39,14 +39,14 @@ class Brand extends AbstractSource implements OptionSourceInterface
      */
     public function toOptionArray() {
         if ($this->_options === null) {
-            $collection = $this->_collectionFactory->create();
+            $collection = $this->_collectionFactory->create()->addAttributeToSelect('*');
 
             $this->_options = [];
 
-            foreach ($collection as $category) {
+            foreach ($collection as $item) {
                 $this->_options[] = [
-                    'label' => $category->getData('name'),
-                    'value' => $category->getData('entity_id')
+                    'label' => $item->getData('name'),
+                    'value' => $item->getData('entity_id')
                 ];
             }
         }
@@ -60,6 +60,10 @@ class Brand extends AbstractSource implements OptionSourceInterface
      */
     public function getAllOptions()
     {
+        return $this->toOptionArray();
+        $collection = $this->_collectionFactory->create()->addAttributeToSelect('*');
+//        var_dump($collection->getFirstItem()->getData());
+//        die();
         $options = [];
         foreach ($this->toOptionArray() as $option)
         {

@@ -52,8 +52,6 @@ class DataActions extends Column
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            var_dump($dataSource['data']['items']));
-            die();
             foreach ($dataSource['data']['items'] as & $item) {
                 if (isset($item['entity_id'])) {
                     $item[$this->getData('name')] = [

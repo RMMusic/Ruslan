@@ -15,6 +15,7 @@ interface DataInterface
     const DATA_TITLE        = 'name';
     const DATA_DESCRIPTION  = 'description';
     const IS_ACTIVE         = 'is_active';
+    const IMAGE             = 'image';
 
     /**
      * Get ID
@@ -75,4 +76,19 @@ interface DataInterface
      * @return DataInterface
      */
     public function setIsActive($isActive);
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage();
+
+    /**
+     * Set image
+     *
+     * @param $image
+     * @return DataInterface
+     */
+    public function setImage($image);
 }

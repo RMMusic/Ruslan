@@ -56,7 +56,6 @@ class BrandSetup extends EavSetup
      * Default entities and attributes
      *
      * @return array
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
     public function getDefaultEntities()
     {

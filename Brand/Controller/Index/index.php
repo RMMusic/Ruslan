@@ -82,12 +82,12 @@ class Index extends Action
     public function set()
     {
         $base = $this->baseFactory->create();
-        $base->setEntityId(5);
-        $base->setName('ruslan6');
-        $base->setDescription('11description');
-        $base->setImage('image1');
-        $base->setIs_active(0);
-        $base->save();
+//        $base->setEntityId(5);
+//        $base->setName('ruslan6');
+//        $base->setDescription('11description');
+//        $base->setImage('image1');
+//        $base->setIs_active(0);
+//        $base->save();
         $baseCollection = $base->getCollection()->addAttributeToSelect('*');
         foreach ($baseCollection as $item) {
             var_dump($item->getData());

@@ -20,6 +20,7 @@ abstract class Data extends Action
      * @var string
      */
     const ACTION_RESOURCE = 'Ruslan_Brand::data';
+
     /**
      * Data repostory
      *
@@ -32,6 +33,7 @@ abstract class Data extends Action
      *
      * @var Registry
      */
+
     protected $_coreRegistry;
 
     /**

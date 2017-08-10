@@ -2,38 +2,35 @@
 
 namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
-use Ruslan\Brand\Model\ImageUploader;
+use Magento\Backend\App\Action;
 
 /**
  * Class Upload
- *
- * @package Magentotasks\CustomerInfo\Controller\Adminhtml\Customer\Image
  */
-
 class Upload extends Action
 {
     /**
      * Image uploader
      *
-     * @var ImageUploader
+     * @var \Magento\Catalog\Model\ImageUploader
      */
     protected $imageUploader;
+
     /**
      * Upload constructor.
      *
-     * @param Context $context
-     * @param ImageUploader $imageUploader
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
      */
     public function __construct(
-        Context $context,
-        ImageUploader $imageUploader
+        \Magento\Backend\App\Action\Context $context,
+        \Ruslan\Brand\Model\ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
     }
+
     /**
      * Upload file controller action
      *
@@ -43,6 +40,7 @@ class Upload extends Action
     {
         try {
             $result = $this->imageUploader->saveFileToTmpDir('image');
+
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),

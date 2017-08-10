@@ -73,7 +73,7 @@ class Image extends AbstractBackend
     {
         if ($this->imageUploader === null) {
             $this->imageUploader = \Magento\Framework\App\ObjectManager::getInstance()->get(
-                'Ruslan\Brand\BrandImageUpload'
+                'Magento\Catalog\CategoryImageUpload'
             );
         }
         return $this->imageUploader;

@@ -7,9 +7,9 @@
 
 namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
-use Ruslan\Brand\Controller\Adminhtml\Data;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Ruslan\Brand\Controller\Adminhtml\Data;
 
 class Delete extends Data
 {
