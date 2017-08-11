@@ -1,8 +1,19 @@
 <?php
-namespace Ruslan\Brand\Model\Data\Source;
+
+/**
+ * @author Ruslan Miskiv
+ *
+ * Status Model
+ */
+
+namespace Ruslan\Brand\Model\Attribute\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
+/**
+ * Class Status
+ * @package Ruslan\Brand\Model\Attribute\Source
+ */
 class Status implements OptionSourceInterface
 {
     /**

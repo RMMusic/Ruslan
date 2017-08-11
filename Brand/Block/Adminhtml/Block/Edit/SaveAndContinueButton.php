@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Save and continue button
  */
@@ -9,6 +10,10 @@ namespace Ruslan\Brand\Block\Adminhtml\Block\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
+/**
+ * Class SaveAndContinueButton
+ * @package Ruslan\Brand\Block\Adminhtml\Block\Edit
+ */
 class SaveAndContinueButton extends GenericButton implements ButtonProviderInterface
 {
 

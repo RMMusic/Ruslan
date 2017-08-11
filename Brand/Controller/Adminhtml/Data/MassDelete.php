@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Mass delete action
  */
@@ -9,6 +10,10 @@ namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
 use Ruslan\Brand\Model\Data;
 
+/**
+ * Class MassDelete
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class MassDelete extends MassAction
 {
     /**

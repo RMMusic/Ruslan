@@ -1,6 +1,6 @@
 <?php
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module register
  */

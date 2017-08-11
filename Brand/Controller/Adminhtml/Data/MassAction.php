@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Mass action
  */
@@ -18,6 +19,10 @@ use Ruslan\Brand\Controller\Adminhtml\Data;
 use Ruslan\Brand\Model\Data as DataModel;
 use Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory;
 
+/**
+ * Class MassAction
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 abstract class MassAction extends Data
 {
     /**

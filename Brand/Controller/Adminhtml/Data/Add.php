@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Add action
  */
@@ -9,6 +10,10 @@ namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
 use Ruslan\Brand\Controller\Adminhtml\Data;
 
+/**
+ * Class Add
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class Add extends Data
 {
     /**

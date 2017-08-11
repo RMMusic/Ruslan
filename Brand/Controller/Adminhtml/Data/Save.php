@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Save action
  */
@@ -18,6 +19,10 @@ use Ruslan\Brand\Api\Data\DataInterface;
 use Ruslan\Brand\Api\Data\DataInterfaceFactory;
 use Ruslan\Brand\Controller\Adminhtml\Data;
 
+/**
+ * Class Save
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class Save extends Data
 {
     /**
@@ -40,7 +45,17 @@ class Save extends Data
      */
     protected $_dataObjectHelper;
 
-
+    /**
+     * Save constructor.
+     * @param Registry $registry
+     * @param DataRepositoryInterface $dataRepository
+     * @param PageFactory $resultPageFactory
+     * @param ForwardFactory $resultForwardFactory
+     * @param Manager $messageManager
+     * @param DataInterfaceFactory $dataFactory
+     * @param DataObjectHelper $dataObjectHelper
+     * @param Context $context
+     */
     public function __construct(
         Registry $registry,
         DataRepositoryInterface $dataRepository,
@@ -70,8 +85,6 @@ class Save extends Data
 //        $data['image'] = $data['image'][0]['url'];
         $resultRedirect = $this->resultRedirectFactory->create();
 
-//        var_dump($data);
-//        die();
         if ($data) {
             $id = $this->getRequest()->getParam('entity_id');
             if ($id) {

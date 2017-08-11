@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Delete action
  */
@@ -11,6 +12,10 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Ruslan\Brand\Controller\Adminhtml\Data;
 
+/**
+ * Class Delete
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class Delete extends Data
 {
     /**

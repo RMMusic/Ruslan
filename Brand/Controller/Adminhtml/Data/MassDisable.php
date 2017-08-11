@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ruslan Miskiv
  *
@@ -9,9 +10,12 @@ namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
 use Ruslan\Brand\Model\Data;
 
+/**
+ * Class MassDisable
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class MassDisable extends MassAction
 {
-
     /**
      * @param Data $data
      * @return $this

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Ruslan_Brand module image uploader
+ */
 
 namespace Ruslan\Brand\Model;
 

@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Ruslan_Brand module Upload action
+ */
+
 namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action;
+use \Magento\Backend\App\Action\Context;
+use \Ruslan\Brand\Model\ImageUploader;
 
 /**
  * Class Upload
@@ -21,11 +29,11 @@ class Upload extends Action
      * Upload constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+     * @param \Ruslan\Brand\Model\ImageUploader $imageUploader
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Ruslan\Brand\Model\ImageUploader $imageUploader
+        Context $context,
+        ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;

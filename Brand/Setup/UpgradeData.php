@@ -1,9 +1,11 @@
 <?php
+
 /**
- * Install AddAttribute for product
- *
  * @author Ruslan Miskiv
+ *
+ * Install AddAttribute for product
  */
+
 namespace Ruslan\Brand\Setup;
 
 use Magento\Framework\Setup\UpgradeDataInterface;
@@ -12,6 +14,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Eav\Setup\EavSetup;
+use Magento\Catalog\Model\Product;
 
 /**
  * Class UpgradeData
@@ -38,7 +41,8 @@ class UpgradeData implements UpgradeDataInterface
     }
 
     /**
-    *
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
      */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
@@ -47,7 +51,7 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), '0.0.2', '<')) {
             $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
             $eavSetup->addAttribute(
-                \Magento\Catalog\Model\Product::ENTITY, 'add_brand_to_product',
+                Product::ENTITY, 'add_brand_to_product',
                 [
                     'group' => 'General',
                     'type' => 'varchar',

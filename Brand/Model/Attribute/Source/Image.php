@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Image Model
+ */
+
 namespace Ruslan\Brand\Model\Attribute\Source;
 
 use Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend;
+use Psr\Log\LoggerInterface;
+use Magento\Framework\Filesystem;
+use Magento\MediaStorage\Model\File\UploaderFactory;
 
+/**
+ * Class Image
+ * @package Ruslan\Brand\Model\Attribute\Source
+ */
 class Image extends AbstractBackend
 {
     /**
@@ -47,15 +60,14 @@ class Image extends AbstractBackend
 
     /**
      * Image constructor.
-     *
-     * @param \Psr\Log\LoggerInterface $logger
-     * @param \Magento\Framework\Filesystem $filesystem
-     * @param \Magento\MediaStorage\Model\File\UploaderFactory $fileUploaderFactory
+     * @param LoggerInterface $logger
+     * @param Filesystem $filesystem
+     * @param UploaderFactory $fileUploaderFactory
      */
     public function __construct(
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\Filesystem $filesystem,
-        \Magento\MediaStorage\Model\File\UploaderFactory $fileUploaderFactory
+        LoggerInterface $logger,
+        Filesystem $filesystem,
+        UploaderFactory $fileUploaderFactory
     ) {
         $this->_filesystem = $filesystem;
         $this->_fileUploaderFactory = $fileUploaderFactory;
@@ -67,7 +79,6 @@ class Image extends AbstractBackend
      *
      * @return \Magento\Catalog\Model\ImageUploader
      *
-     * @deprecated
      */
     private function getImageUploader()
     {

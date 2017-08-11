@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Brand action
  */
@@ -14,6 +15,10 @@ use Magento\Framework\View\Result\PageFactory;
 use Magento\Backend\Model\View\Result\ForwardFactory;
 use Ruslan\Brand\Api\DataRepositoryInterface;
 
+/**
+ * Class Data
+ * @package Ruslan\Brand\Controller\Adminhtml
+ */
 abstract class Data extends Action
 {
     /**
@@ -33,7 +38,6 @@ abstract class Data extends Action
      *
      * @var Registry
      */
-
     protected $_coreRegistry;
 
     /**

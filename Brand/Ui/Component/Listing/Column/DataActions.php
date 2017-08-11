@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Ui brand actions
  */
@@ -12,6 +13,10 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
+/**
+ * Class DataActions
+ * @package Ruslan\Brand\Ui\Component\Listing\Column
+ */
 class DataActions extends Column
 {
     const URL_PATH_EDIT = 'brand/data/edit';

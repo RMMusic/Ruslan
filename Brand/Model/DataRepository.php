@@ -1,8 +1,9 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
- * Ruslan_Brand module Brand repository model
+ * Ruslan_Brand module repository model
  */
 
 namespace Ruslan\Brand\Model;
@@ -22,33 +23,50 @@ use Ruslan\Brand\Api\Data\DataSearchResultsInterfaceFactory;
 use Ruslan\Brand\Model\ResourceModel\Data as ResourceData;
 use Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory as DataCollectionFactory;
 
+/**
+ * Class DataRepository
+ * @package Ruslan\Brand\Model
+ */
 class DataRepository implements DataRepositoryInterface
 {
     /**
-     * @var array
+     * @var array Instances
      */
     protected $_instances = [];
+
     /**
-     * @var ResourceData
+     * @var Resource
      */
     protected $_resource;
+
     /**
      * @var DataCollectionFactory
      */
-    protected $_dataCollectionFactory;
+    protected $_dataCollectionFactory
+    ;
     /**
      * @var DataSearchResultsInterfaceFactory
      */
     protected $_searchResultsFactory;
+
     /**
      * @var DataInterfaceFactory
      */
     protected $_dataInterfaceFactory;
+
     /**
      * @var DataObjectHelper
      */
     protected $_dataObjectHelper;
 
+    /**
+     * DataRepository constructor.
+     * @param ResourceData $resource
+     * @param DataCollectionFactory $dataCollectionFactory
+     * @param DataSearchResultsInterfaceFactory $dataSearchResultsInterfaceFactory
+     * @param DataInterfaceFactory $dataInterfaceFactory
+     * @param DataObjectHelper $dataObjectHelper
+     */
     public function __construct(
         ResourceData $resource,
         DataCollectionFactory $dataCollectionFactory,
@@ -72,7 +90,6 @@ class DataRepository implements DataRepositoryInterface
     public function save(DataInterface $data)
     {
         try {
-            /** @var DataInterface|\Magento\Framework\Model\AbstractModel $data */
             $this->_resource->save($data);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__(
@@ -84,7 +101,7 @@ class DataRepository implements DataRepositoryInterface
     }
 
     /**
-     * Get data record
+     * Get record
      *
      * @param $dataId
      * @return mixed
@@ -93,7 +110,6 @@ class DataRepository implements DataRepositoryInterface
     public function getById($dataId)
     {
         if (!isset($this->_instances[$dataId])) {
-            /** @var \Ruslan\Brand\Api\Data\DataInterface|\Magento\Framework\Model\AbstractModel $data */
             $data = $this->_dataInterfaceFactory->create();
             $this->_resource->load($data, $dataId);
             if (!$data->getId()) {
@@ -117,12 +133,13 @@ class DataRepository implements DataRepositoryInterface
         /** @var \Ruslan\Brand\Model\ResourceModel\Data\Collection $collection */
         $collection = $this->_dataCollectionFactory->create();
 
-        //Add filters from root filter group to the collection
-        /** @var FilterGroup $group */
+        /**Add filters from root filter group to the collection
+        * @var FilterGroup $group */
         foreach ($searchCriteria->getFilterGroups() as $group) {
             $this->addFilterGroupToCollection($group, $collection);
         }
         $sortOrders = $searchCriteria->getSortOrders();
+
         /** @var SortOrder $sortOrder */
         if ($sortOrders) {
             foreach ($searchCriteria->getSortOrders() as $sortOrder) {

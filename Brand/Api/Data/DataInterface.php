@@ -1,19 +1,25 @@
 <?php
-namespace Ruslan\Brand\Api\Data;
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
- * Ruslan_Brand module Brand interface
+ * Ruslan_Brand module interface
  */
 
+namespace Ruslan\Brand\Api\Data;
+
+/**
+ * Interface DataInterface
+ * @package Ruslan\Brand\Api\Data
+ */
 interface DataInterface
 {
     /**
-     * Constants for keys of data array. Identical to the name of the getter in snake case
+     * Constants for keys of data array
      */
-    const DATA_ID           = 'entity_id';
-    const DATA_TITLE        = 'name';
-    const DATA_DESCRIPTION  = 'description';
+    const ID                = 'entity_id';
+    const NAME              = 'name';
+    const DESCRIPTION       = 'description';
     const IS_ACTIVE         = 'is_active';
     const IMAGE             = 'image';
 
@@ -33,14 +39,14 @@ interface DataInterface
     public function setId($id);
 
     /**
-     * Get Data Title
+     * Get Name
      *
      * @return string
      */
     public function getName();
 
     /**
-     * Set Data Title
+     * Set Name
      *
      * @param $title
      * @return mixed
@@ -48,14 +54,14 @@ interface DataInterface
     public function setName($title);
 
     /**
-     * Get Data Description
+     * Get Description
      *
      * @return mixed
      */
     public function getDescription();
 
     /**
-     * Set Data Description
+     * Set Description
      *
      * @param $description
      * @return mixed

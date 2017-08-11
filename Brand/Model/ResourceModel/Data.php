@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ruslan Miskiv
  *
- * Ruslan_Brand module Brand resource model
+ * Ruslan_Brand module resource model
  */
 
 namespace Ruslan\Brand\Model\ResourceModel;
@@ -10,9 +11,8 @@ namespace Ruslan\Brand\Model\ResourceModel;
 use Magento\Catalog\Model\ResourceModel\AbstractResource;
 
 /**
- * Brand entity resource model
- *
- * @SuppressWarnings(PHPMD.LongVariable)
+ * Class Data
+ * @package Ruslan\Brand\Model\ResourceModel
  */
 class Data extends AbstractResource
 {

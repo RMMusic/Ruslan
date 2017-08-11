@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Generic button
  */
@@ -10,6 +11,10 @@ namespace Ruslan\Brand\Block\Adminhtml\Block\Edit;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
 
+/**
+ * Class GenericButton
+ * @package Ruslan\Brand\Block\Adminhtml\Block\Edit
+ */
 class GenericButton
 {
     /**

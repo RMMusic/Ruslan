@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Ruslan_Brand module Install data
+ */
+
 namespace Ruslan\Brand\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
@@ -8,7 +14,8 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Ruslan\Brand\Setup\BrandSetupFactory;
 
 /**
- * @codeCoverageIgnore
+ * Class InstallData
+ * @package Ruslan\Brand\Setup
  */
 class InstallData implements InstallDataInterface
 {
@@ -30,14 +37,11 @@ class InstallData implements InstallDataInterface
     }
 
     /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-     * @SuppressWarnings(PHPMD.NPathComplexity)
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        /** @var \Magento\Catalog\Setup\BrandSetup $brandSetup */
         $brandSetup = $this->brandSetupFactory->create(['setup' => $setup]);
         $brandSetup->installEntities();
     }

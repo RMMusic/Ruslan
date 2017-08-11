@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Save button
  */
@@ -9,6 +10,10 @@ namespace Ruslan\Brand\Block\Adminhtml\Block\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
+/**
+ * Class SaveButton
+ * @package Ruslan\Brand\Block\Adminhtml\Block\Edit
+ */
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
     /**

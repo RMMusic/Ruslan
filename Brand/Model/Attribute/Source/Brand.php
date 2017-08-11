@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ruslan Miskiv
  *
@@ -11,46 +12,30 @@ use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 use Magento\Framework\Data\OptionSourceInterface;
 use Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory;
 
+/**
+ * Class Brand
+ * @package Ruslan\Brand\Model\Attribute\Source
+ */
 class Brand extends AbstractSource implements OptionSourceInterface
 {
     /**
      * @var \Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory
      */
-    protected $_collectionFactory;
+    protected $collectionFactory;
 
     /**
      * @var array|null
      */
-    protected $_options;
+    protected $options;
 
     /**
-     * @param \Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory $collectionFactory
+     * Brand constructor.
+     * @param CollectionFactory $collectionFactory
      */
     public function __construct(
         CollectionFactory $collectionFactory
     ) {
-        $this->_collectionFactory = $collectionFactory;
-    }
-
-    /**
-     * Prepare data for options
-     *
-     * @return array
-     */
-    public function toOptionArray() {
-        if ($this->_options === null) {
-            $collection = $this->_collectionFactory->create()->addAttributeToSelect('*');
-
-            $this->_options = [];
-
-            foreach ($collection as $item) {
-                $this->_options[] = [
-                    'label' => $item->getData('name'),
-                    'value' => $item->getData('entity_id')
-                ];
-            }
-        }
-        return $this->_options;
+        $this->collectionFactory = $collectionFactory;
     }
 
     /**
@@ -60,19 +45,17 @@ class Brand extends AbstractSource implements OptionSourceInterface
      */
     public function getAllOptions()
     {
-        return $this->toOptionArray();
-        $collection = $this->_collectionFactory->create()->addAttributeToSelect('*');
-//        var_dump($collection->getFirstItem()->getData());
-//        die();
-        $options = [];
-        foreach ($this->toOptionArray() as $option)
-        {
-            $options[] = [
-                'label' => $option['label'],
-                'value' => $option['value']
+        $this->options = null;
+        $this->options = [];
+        $collection = $this->collectionFactory->create()->addAttributeToSelect('*');
+
+        foreach ($collection as $item) {
+            $this->options[] = [
+                'label' => $item->getData('name'),
+                'value' => $item->getData('entity_id')
             ];
         }
 
-        return $options;
+        return $this->options;
     }
 }

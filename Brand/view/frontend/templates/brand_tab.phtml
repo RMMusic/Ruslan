@@ -1,8 +1,5 @@
-<?php // Get current product
-$product = $block->getProduct();
-var_dump($block->getProduct()->getName());
+<?php
+$block = \Magento\Framework\App\ObjectManager::getInstance()->get('Ruslan\Brand\Block\frontend\TabBrand');
+echo $block->getBrand();
 ?>
 
-
-
-<!--<h1 style="color: #ff5501">--><?php //echo $product->getData('entity_id'); ?><!--</h1>-->

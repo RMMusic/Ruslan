@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Edit action
  */
@@ -9,6 +10,10 @@ namespace Ruslan\Brand\Controller\Adminhtml\Data;
 
 use Ruslan\Brand\Controller\Adminhtml\Data;
 
+/**
+ * Class Edit
+ * @package Ruslan\Brand\Controller\Adminhtml\Data
+ */
 class Edit extends Data
 {
     /**

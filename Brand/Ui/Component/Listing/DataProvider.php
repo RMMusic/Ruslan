@@ -1,41 +1,40 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Grid data provider
+ */
 
 namespace Ruslan\Brand\Ui\Component\Listing;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory;
+use Magento\Framework\Api\Filter;
 
 /**
  * Class DataProvider
- * @package Socoda\Company\Ui\Component\Company\Listing
+ * @package Ruslan\Brand\Ui\Component\Listing
  */
 class DataProvider extends AbstractDataProvider
 {
     /**
-     * Company collection
-     *
-     * @var \Socoda\Company\Model\ResourceModel\Company\Collection
+     * @var \Ruslan\Brand\Model\ResourceModel\Data\Collection
      */
     protected $collection;
 
     /**
-     * Add field strategies
-     *
-     * @var \Magento\Ui\DataProvider\AddFieldToCollectionInterface[]
+     * @var array
      */
     protected $addFieldStrategies;
 
     /**
-     * Add filter strategies
-     *
-     * @var \Magento\Ui\DataProvider\AddFilterToCollectionInterface[]
+     * @var array
      */
     protected $addFilterStrategies;
 
     /**
      * DataProvider constructor.
-     *
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
@@ -56,13 +55,10 @@ class DataProvider extends AbstractDataProvider
         array $data = []
     ) {
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
-
         $this->collection = $collectionFactory->create();
-
         $this->addFieldStrategies  = $addFieldStrategies;
         $this->addFilterStrategies = $addFilterStrategies;
     }
-
     /**
      * Get data
      *
@@ -90,16 +86,15 @@ class DataProvider extends AbstractDataProvider
     {
         if (isset($this->addFieldStrategies[$field])) {
             $this->addFieldStrategies[$field]->addField($this->getCollection(), $field, $alias);
-
             return ;
         }
         parent::addField($field, $alias);
     }
 
     /**
-     * {@inheritdoc}
+     * @param \Magento\Framework\Api\Filter $filter
      */
-    public function addFilter(\Magento\Framework\Api\Filter $filter)
+    public function addFilter(Filter $filter)
     {
         if (isset($this->addFilterStrategies[$filter->getField()])) {
             $this->addFilterStrategies[$filter->getField()]
@@ -108,7 +103,6 @@ class DataProvider extends AbstractDataProvider
                     $filter->getField(),
                     [$filter->getConditionType() => $filter->getValue()]
                 );
-
             return;
         }
         parent::addFilter($filter);

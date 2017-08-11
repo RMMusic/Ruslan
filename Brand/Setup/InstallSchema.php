@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Ruslan_Brand module Install data
+ */
+
 namespace Ruslan\Brand\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
@@ -8,13 +14,14 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use \Magento\Framework\DB\Ddl\Table;
 
 /**
- * @codeCoverageIgnore
+ * Class InstallSchema
+ * @package Ruslan\Brand\Setup
  */
 class InstallSchema implements InstallSchemaInterface
 {
     /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {

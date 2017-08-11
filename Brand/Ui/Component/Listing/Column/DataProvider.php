@@ -1,20 +1,25 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
- * Ruslan_Brand module Brand provider model
+ * Ruslan_Brand module provider
  */
 
-namespace Ruslan\Brand\Model;
+namespace Ruslan\Brand\Ui\Component\Listing\Column;
 
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Ruslan\Brand\Model\ResourceModel\Data\CollectionFactory;
 
+/**
+ * Class DataProvider
+ * @package Ruslan\Brand\Model
+ */
 class DataProvider extends AbstractDataProvider
 {
     /**
-     * @var ResourceModel\Data\Collection
+     * @var \Ruslan\Brand\Model\ResourceModel\Data\Collection
      */
     protected $collection;
 
@@ -29,6 +34,7 @@ class DataProvider extends AbstractDataProvider
     protected $loadedData;
 
     /**
+     * DataProvider constructor.
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName

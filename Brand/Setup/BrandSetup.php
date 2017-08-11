@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @author Ruslan Miskiv
+ *
+ * Ruslan_Brand module Brand setup
+ */
+
 namespace Ruslan\Brand\Setup;
 
 use Magento\Eav\Model\Entity\Setup\Context;

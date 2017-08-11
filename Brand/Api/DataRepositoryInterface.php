@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Brand repository interface
  */
@@ -10,6 +11,10 @@ namespace Ruslan\Brand\Api;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Ruslan\Brand\Api\Data\DataInterface;
 
+/**
+ * Interface DataRepositoryInterface
+ * @package Ruslan\Brand\Api
+ */
 interface DataRepositoryInterface
 {
 
@@ -21,10 +26,10 @@ interface DataRepositoryInterface
 
 
     /**
-     * @param $dataId
+     * @param $id
      * @return mixed
      */
-    public function getById($dataId);
+    public function getById($id);
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
@@ -40,8 +45,8 @@ interface DataRepositoryInterface
     public function delete(DataInterface $data);
 
     /**
-     * @param $dataId
+     * @param $id
      * @return mixed
      */
-    public function deleteById($dataId);
+    public function deleteById($id);
 }

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Ruslan Miskiv
+ * @author Ruslan Miskiv
  *
  * Ruslan_Brand module Brand model
  */
@@ -10,9 +11,12 @@ namespace Ruslan\Brand\Model;
 use Magento\Framework\Model\AbstractModel;
 use Ruslan\Brand\Api\Data\DataInterface;
 
+/**
+ * Class Data
+ * @package Ruslan\Brand\Model
+ */
 class Data extends AbstractModel implements DataInterface
 {
-
     /**
      * Entity code.
      */
@@ -42,45 +46,45 @@ class Data extends AbstractModel implements DataInterface
     }
 
     /**
-     * Get title
+     * Get name
      *
      * @return string
      */
     public function getName()
     {
-        return $this->getData(DataInterface::DATA_TITLE);
+        return $this->getData(DataInterface::NAME);
     }
 
     /**
-     * Set title
+     * Set name
      *
-     * @param $title
+     * @param $name
      * @return $this
      */
-    public function setName($title)
+    public function setName($name)
     {
-        return $this->setData(DataInterface::DATA_TITLE, $title);
+        return $this->setData(DataInterface::NAME, $name);
     }
 
     /**
-     * Get data description
+     * Get description
      *
      * @return string
      */
     public function getDescription()
     {
-        return $this->getData(DataInterface::DATA_TITLE);
+        return $this->getData(DataInterface::NAME);
     }
 
     /**
-     * Set data description
+     * Set description
      *
      * @param $description
      * @return $this
      */
     public function setDescription($description)
     {
-        return $this->setData(DataInterface::DATA_DESCRIPTION, $description);
+        return $this->setData(DataInterface::DESCRIPTION, $description);
     }
 
     /**
@@ -113,6 +117,7 @@ class Data extends AbstractModel implements DataInterface
     {
         return $this->getData(DataInterface::IMAGE);
     }
+
     /**
      * Set image
      *
@@ -123,5 +128,4 @@ class Data extends AbstractModel implements DataInterface
     {
         return $this->setData(DataInterface::IMAGE, $image);
     }
-
 }
